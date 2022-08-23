@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
+public class Doctor extends User {
     static int id = 1;
     int doctorId;
     private String name;
@@ -46,17 +46,12 @@ public class Doctor {
         System.out.println(this.doctorId);
     }
 
-    Doctor(String name){
-        this.name = name;
-        System.out.println("instanciado");
-        this.doctorId = id++;
-    }
 
-    Doctor(String name, String speciality){
+    Doctor(String name, String email){
+        super(name, email);
         System.out.println("instanciado");
         this.doctorId = id++;
         this.name = name;
-        this.speciality = speciality;
     }
 
     public void addAvailableAppointment(Date date, String time){
