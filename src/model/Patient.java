@@ -1,3 +1,5 @@
+package model;
+
 public class Patient extends User{
     int id;
     private String name;
@@ -77,10 +79,14 @@ public class Patient extends User{
         this.blood = blood;
     }
 
-    Patient(String nombre, String email){
+    public Patient(String nombre, String email){
         super(nombre, email);
         this.name = nombre;
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "\nAge: "+birthday+"\nWeight: "+getWeight()+ "\nBlood: "+blood;
+    }
 }
