@@ -49,4 +49,6 @@ public abstract class User {
     public String toString() {
         return "model.User: "+name+", Email: "+email+ ", Adress: "+address+", Phone: "+phoneNimber;
     }
+
+    public abstract void showDataUser();
 }

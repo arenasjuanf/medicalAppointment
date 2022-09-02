@@ -89,4 +89,9 @@ public class Patient extends User{
     public String toString() {
         return super.toString() + "\nAge: "+birthday+"\nWeight: "+getWeight()+ "\nBlood: "+blood;
     }
+
+    @Override
+    public void showDataUser() {
+        System.out.println("Paciente");
+    }
 }

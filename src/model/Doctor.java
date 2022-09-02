@@ -18,6 +18,12 @@ public class Doctor extends User {
         return super.toString()+" \n Speciality: "+speciality+"\nAvailable: "+availableAppointments;
     }
 
+    @Override
+    public void showDataUser() {
+        System.out.println("Empleado del Hopital: Cruz Roja");
+        System.out.println("Departamento: Cancerologìa");
+    }
+
 
     public String getSpeciality() {
         return speciality;
@@ -29,8 +35,7 @@ public class Doctor extends User {
 
 
     public void showName(){
-        System.out.println(this.name);
-
+        System.out.println(this.getName());
     }
 
     public void showId(){
@@ -39,11 +44,11 @@ public class Doctor extends User {
     }
 
 
-    Doctor(String name, String email){
+    public Doctor(String name, String email){
         super(name, email);
         System.out.println("instanciado");
         this.doctorId = id++;
-        this.name = name;
+        this.setName(name);
     }
 
     public void addAvailableAppointment(Date date, String time){
