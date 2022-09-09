@@ -1,10 +1,16 @@
 package ui;
 
+import model.Doctor;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static ui.UIMenu.MONTHS;
 
 public class UIDoctorMenu {
+
+    public static ArrayList<Doctor> doctorsAvailableAppointments = new ArrayList<Doctor>();
+
     public static void showDoctorMenu(){
         int response = 0;
         do{
@@ -48,17 +54,36 @@ public class UIDoctorMenu {
 
             if(response > 0 && response < 4){
                 int selectedMonth = response;
-                System.out.println("Selected month: "+MONTHS[i]);
+                System.out.println("Selected month: "+MONTHS[response]);
                 System.out.println("Insert date : [dd/mm/yy]");
                 String date = sc.nextLine();
                 System.out.println("your date is: "+date+" \n 1.Correct \n 2.Incorrect");
+                int responseDate = Integer.valueOf(sc.nextLine());
+                if (responseDate == 2) continue;
 
+                int responseTime = 0;
+                String time = "";
+                do{
+                    System.out.println("Insert the available time for date: "+date+" [16:00]");
+                    time = sc.nextLine();
+                    System.out.println("Your time is : "+time+"\n1. Correct \n2. Change time");
+                    responseTime = Integer.valueOf(sc.nextLine());
+                }while( responseTime == 2 );
+
+                UIMenu.loggedDoctor.addAvailableAppointment(date, time);
+                checkDoctorAvailableAppointments(UIMenu.loggedDoctor);
 
             }else if(response==0){
                 showDoctorMenu();
             }
 
         }while(response != 0);
+    }
+
+    private static void checkDoctorAvailableAppointments(Doctor doctor){
+        if(doctor.getAvailableAppointments().size() > 0 && !doctorsAvailableAppointments.contains(doctor) ){
+            doctorsAvailableAppointments.add(doctor);
+        }
     }
 
 }
