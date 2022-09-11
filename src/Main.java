@@ -1,16 +1,13 @@
 import model.*;
+import ui.UIMenu;
 
 import java.util.Date;
 
 public class Main {
 
         public static void main(String[] args){
-                // showMenu();
-                Doctor myDoctor = new Doctor("Juan Felipe Arenas", "Cardiologo");
-                myDoctor.showId();
+                UIMenu.showMenu();
 
-                myDoctor.addAvailableAppointment(new Date(), "4pm");
-                myDoctor.addAvailableAppointment(new Date(), "5pm");
 
 
                 ISchedulable iSchedulable = new ISchedulable() {

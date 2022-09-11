@@ -72,6 +72,7 @@ public class UIMenu {
                         //Obtener datos de usuario loggeado
                         loggedDoctor = d;
                         //mostrar menu doctor
+                        UIDoctorMenu.showDoctorMenu();
                     }
                 }
             }else{
@@ -81,6 +82,7 @@ public class UIMenu {
                         //Obtener datos de usuario loggeado
                         loggedPatient = p;
                         //mostrar menu paciente
+                        UIMenu.showPatientMenu();
                     }
                 }
 
